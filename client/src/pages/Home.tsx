@@ -61,7 +61,7 @@ function YouTubeEmbed({ videoId, title, isShort = false }: { videoId: string; ti
 function IllustrationWithGlow({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="absolute inset-0 bg-teal/8 rounded-full blur-2xl scale-110" aria-hidden="true" />
+      <div className="absolute inset-0 rounded-full blur-2xl scale-110" style={{ backgroundColor: '#18aa99' }} aria-hidden="true" />
       <img src={src} alt={alt} className="relative w-full h-full object-contain" />
     </div>
   );
@@ -218,7 +218,8 @@ function StorySmithSection() {
                   <img
                     src={SMITHY_SCENE_URL}
                     alt="2D illustrated smithy scene — faceless figure forging at an anvil with hammer, teal and charcoal palette"
-                    className="h-24 md:h-32 w-auto opacity-80 drop-shadow-[0_0_12px_rgba(66,219,191,0.15)]"
+                    className="opacity-80 drop-shadow-[0_0_12px_rgba(66,219,191,0.15)]"
+                    style={{ width: '445px', height: '312px', backgroundColor: '#00cca8', borderRadius: '38px', paddingRight: '26px' }}
                   />
                 </div>
                 {/* Headshot */}
