@@ -25,3 +25,5 @@
 - [x] Add descriptions to new Map events (SeriesFest FiF, Outside Days, Golden Startup Coffee)
 - [x] Verify all existing tests pass (8/8)
 - [x] Fix duplicate React key error for two "SeriesFest — Fashion in Focus, Denver" collage items
+- [x] Change collage photo 5 label to "Fashion in Focus, Denver"
+- [x] Change collage photo 6 label to "SeriesFest, Denver"

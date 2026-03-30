@@ -297,8 +297,8 @@ const collageItems = [
   { label: "American Film Market", image: PHOTO_AFM, alt: "American Film Market — independent film industry event coverage" },
   { label: "PitchBoulder — Boulder, CO", image: PHOTO_PITCHBOULDER, alt: "PitchBoulder — weekly startup pitch event in Boulder, Colorado" },
   { label: "Outside Days — Outside Magazine Festival", image: PHOTO_OUTSIDE, alt: "Outside Days — Outside Magazine outdoor adventure and lifestyle festival" },
-  { label: "SeriesFest — Fashion in Focus, Denver", image: PHOTO_SERIESFEST, alt: "SeriesFest Fashion in Focus — fashion and entertainment industry event in Denver" },
-  { label: "SeriesFest — Fashion in Focus, Denver", image: PHOTO_FASHION, alt: "SeriesFest Fashion in Focus — costume design and television craft celebration" },
+  { label: "Fashion in Focus, Denver", image: PHOTO_SERIESFEST, alt: "SeriesFest Fashion in Focus — fashion and entertainment industry event in Denver" },
+  { label: "SeriesFest, Denver", image: PHOTO_FASHION, alt: "SeriesFest Fashion in Focus — costume design and television craft celebration" },
 ];
 
 function FieldSection() {
