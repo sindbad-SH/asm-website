@@ -5,7 +5,6 @@
  * StorySmith concept: forged precision, angular compositions, teal as forge-heat.
  * DM Sans headlines + Crimson Pro body + Barlow Condensed labels.
  */
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -14,17 +13,13 @@ import SectionDivider from "@/components/SectionDivider";
 
 // CDN URLs — provided assets
 const HEADSHOT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/IMG_20251115_094655_696_2011f9cc.webp";
-const HERO_BG_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/hero-bg-DDQMYazAcwoWTMBUTgs3Mq.webp";
-const FIELD_BG_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/field-section-bg-eNiiFGY5Ww4fHGnZTQ5cLC.webp";
-const SERVICES_IMG_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/services-accent-7qCgxRr4WShoRC4mBCTvfM.webp";
-const CONNECT_BG_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/connect-bg-HE9YroLZoiBKajJMg9hXma.webp";
 
-// CDN URLs — generated 2D illustrations
-const HERO_CHARACTER_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/hero-character-A5vwpiHq357FxaMWjbpfJR.webp";
-const FIELD_STORYTELLING_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/field-storytelling-MhvvQeDkA32XR4VQJEF2w2.webp";
-const EVENT_COVERAGE_ICON_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/event-coverage-icon-kNioY7NzY9jDg9z5fVjuMS.webp";
-const CLARITY_REPORT_PANEL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/clarity-report-panel-nQmBBd5FC79VvV4vKvHFX2.webp";
-const CUSTOM_PROJECTS_ICON_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/custom-projects-icon-Jv8nYaXHMLacdDFhyb8EdS.webp";
+// CDN URLs — new faceless 2D illustrations
+const HERO_CHARACTER_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/hero-character-faceless-nobg_0b714bb7.png";
+const FIELD_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/field-scene-2d-nobg_27c8823a.png";
+const STORY_SCOUT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-scout-icon-nobg_06ca3909.png";
+const STORY_TEST_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-test-icon-nobg_1d5e4ffd.png";
+const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-forge-icon-nobg_b35c7cee.png";
 
 // LinkedIn
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
@@ -60,46 +55,20 @@ function YouTubeEmbed({ videoId, title, isShort = false }: { videoId: string; ti
   );
 }
 
-/* ─── LinkedIn Post Card ─── */
-function LinkedInPostCard({ url, caption }: { url: string; caption: string }) {
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block bg-slate-card border border-white/5 hover:border-teal/30 transition-all group overflow-hidden"
-      aria-label="View LinkedIn post about SeriesFest (opens in new tab)"
-    >
-      <div className="aspect-video flex items-center justify-center relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal/5 to-transparent" />
-        <div className="text-center z-10 p-8">
-          <div className="w-16 h-16 rounded-full bg-[#0A66C2]/20 border border-[#0A66C2]/40 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0A66C2]/30 transition-colors">
-            <Linkedin className="w-7 h-7 text-[#0A66C2]" />
-          </div>
-          <p className="font-serif text-white/70 italic text-sm md:text-base leading-relaxed max-w-sm mx-auto mb-3">
-            "{caption}"
-          </p>
-          <span className="inline-flex items-center gap-1.5 text-xs font-condensed uppercase tracking-[0.15em] text-teal/70 group-hover:text-teal transition-colors">
-            View on LinkedIn
-            <ExternalLink className="w-3 h-3" />
-          </span>
-        </div>
-      </div>
-    </a>
-  );
-}
-
 /* ═══════════════════════════════════════════════════════════════
    HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
     <section aria-label="Hero — Sindbad Horizon, StorySmith" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
+      {/* Background — 2D illustrated mountain silhouettes */}
       <div className="absolute inset-0" aria-hidden="true">
-        <img src={HERO_BG_URL} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+        <div className="absolute inset-0 bg-[#1e1e2e]" />
+        {/* Subtle teal mountain silhouette SVG background */}
+        <svg className="absolute bottom-0 left-0 right-0 h-1/3 opacity-[0.06]" viewBox="0 0 1440 400" preserveAspectRatio="none">
+          <path d="M0,400 L0,280 L120,180 L240,260 L360,140 L480,220 L600,100 L720,200 L840,80 L960,180 L1080,60 L1200,160 L1320,120 L1440,200 L1440,400 Z" fill="currentColor" className="text-teal" />
+        </svg>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e] via-transparent to-[#1e1e2e]/60" />
       </div>
 
       <div className="container relative z-10 pt-24 pb-16 md:pt-32 md:pb-24">
@@ -115,11 +84,11 @@ function HeroSection() {
                 <span className="font-condensed uppercase tracking-[0.3em] text-teal text-xs md:text-sm">
                   Adventure Storytelling Media
                 </span>
-                {/* 2D illustrated character — Sindbad in the field */}
+                {/* Faceless 2D character — field reporter energy */}
                 <img
                   src={HERO_CHARACTER_URL}
-                  alt="Illustrated character of a filmmaker with camera, adventurous energy"
-                  className="h-16 md:h-20 w-auto opacity-80"
+                  alt="Faceless illustrated character with camera and adventurous field reporter energy"
+                  className="h-20 md:h-28 w-auto"
                 />
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white mb-6">
@@ -164,7 +133,7 @@ function HeroSection() {
                   alt="Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media, wearing a vest and bandana at a professional event"
                   className="w-full aspect-[3/4] object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e]/60 via-transparent to-transparent" aria-hidden="true" />
               </div>
               {/* Teal accent corners */}
               <div className="absolute -bottom-2 -right-2 w-16 h-16 border-r-2 border-b-2 border-teal/30" aria-hidden="true" />
@@ -208,7 +177,7 @@ function BioSection() {
               <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
                 I'm Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media. I cover startup pitch events, luxury automotive showcases, independent film festivals, and anywhere else ambitious people are building something worth capturing.
               </p>
-              <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
+              <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed">
                 The most powerful stories aren't just told — they are tested. I build the asset, measure its effectiveness, and feed those insights back into the next iteration. Research &rarr; Creation &rarr; Refinement. I don't just capture your story — I help you find out if it lands.
               </p>
               <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed italic">
@@ -223,7 +192,7 @@ function BioSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   THE FIELD SECTION
+   THE FIELD SECTION — "Story Scout"
    ═══════════════════════════════════════════════════════════════ */
 
 const fieldEntries = [
@@ -250,16 +219,16 @@ const fieldEntries = [
     media: { type: "youtube" as const, videoId: "n7k-Bwu3KIU", title: "PitchBoulder — startup pitch event highlight video" },
   },
   {
-    title: "Renaissance Festival",
+    title: "Colorado Medieval Festival",
     location: "Loveland, CO",
-    context: "Jousters, combat, drone work, and a story most cameras never find.",
+    context: "Most people know the Colorado Renaissance Festival south of Denver. Fewer know about this one — tucked into the forest west of Loveland at Colorado Castle. The Knights of Mayhem brought full contact jousting front and center, with performers whose credits include Game of Thrones. Drone work, ground footage, and a story hiding in plain sight.",
     testimonial: null,
-    media: { type: "youtube" as const, videoId: "2OMfPSibhvE", title: "Colorado Renaissance Festival — drone and ground footage" },
+    media: { type: "youtube" as const, videoId: "2OMfPSibhvE", title: "Colorado Medieval Festival — drone and ground footage of jousting and performances" },
   },
   {
-    title: "The Alps",
+    title: "On Location — Places Worth Going",
     location: "Switzerland & Italy",
-    context: "Drone footage from places most people only see in photos.",
+    context: "Not every story needs a client brief. Some just need someone willing to show up with a drone and a good eye. Switzerland, Italy, and counting.",
     testimonial: null,
     media: {
       type: "shorts-grid" as const,
@@ -271,28 +240,11 @@ const fieldEntries = [
       ],
     },
   },
-  {
-    title: "SeriesFest",
-    location: "Denver, CO",
-    context: "Independent film's most ambitious voices. I was there.",
-    testimonial: null,
-    media: {
-      type: "linkedin" as const,
-      url: "https://www.linkedin.com/posts/sindbad-horizon-b19b4a264_storysmith-seriesfest-fashioninfocus-activity-7440789303875584002-yIln",
-      caption: "No cameras on assignment — just a StorySmith in the room.",
-    },
-  },
 ];
 
 function FieldSection() {
   return (
     <section id="field" aria-label="Portfolio — The Field" className="relative py-20 md:py-28">
-      {/* Subtle background */}
-      <div className="absolute inset-0 opacity-15" aria-hidden="true">
-        <img src={FIELD_BG_URL} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
-      </div>
-
       {/* Faded section number */}
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         02
@@ -311,13 +263,13 @@ function FieldSection() {
             </div>
             {/* 2D illustrated scene — storytelling/coverage */}
             <img
-              src={FIELD_STORYTELLING_URL}
-              alt="Illustrated scene of film camera, clapperboard, and film reel representing storytelling and coverage"
+              src={FIELD_SCENE_URL}
+              alt="Faceless illustrated figure with camera on a mountain overlooking a landscape, representing field storytelling"
               className="h-16 md:h-24 w-auto opacity-70"
             />
           </div>
           <p className="font-serif text-lg text-white/50 italic mb-16 max-w-lg">
-            Places I've been. Stories I've told.
+            Story Scout — Events I've covered. Worlds I've entered.
           </p>
         </FadeIn>
 
@@ -344,12 +296,6 @@ function FieldSection() {
                         />
                       ))}
                     </div>
-                  )}
-                  {entry.media.type === "linkedin" && (
-                    <LinkedInPostCard
-                      url={entry.media.url}
-                      caption={entry.media.caption}
-                    />
                   )}
                 </div>
 
@@ -387,6 +333,33 @@ function FieldSection() {
               </article>
             </FadeIn>
           ))}
+
+          {/* More From The Field — editorial card replacing SeriesFest */}
+          <FadeIn delay={0.1}>
+            <article className="border-l-2 border-teal/40 bg-slate-card/30 p-8 md:p-12 max-w-3xl">
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="font-condensed text-teal/50 text-sm tabular-nums">05</span>
+                <div className="w-8 h-px bg-teal/30" aria-hidden="true" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                More From The Field
+              </h3>
+              <p className="font-serif text-white/60 italic leading-relaxed mb-6">
+                Not every story fits a single frame. SeriesFest Denver, the American Film Market, Boulder Startup Week, Colorado Startup Week, Pitch Boulder — if it's ambitious, interesting, and worth covering, a StorySmith belongs there. More coverage documented on LinkedIn.
+              </p>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-teal text-background font-semibold text-sm px-5 py-2.5 hover:bg-teal-glow transition-colors focus-visible:ring-2 focus-visible:ring-teal"
+                aria-label="View more coverage on LinkedIn (opens in new tab)"
+              >
+                <Linkedin className="w-4 h-4" aria-hidden="true" />
+                Follow on LinkedIn
+                <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
+              </a>
+            </article>
+          </FadeIn>
         </div>
 
         {/* Follow CTA */}
@@ -414,30 +387,30 @@ function FieldSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WHAT I DO (SERVICES) SECTION
+   WHAT I DO (SERVICES) SECTION — "The StorySmith Process"
    ═══════════════════════════════════════════════════════════════ */
 
 const services = [
   {
-    title: "Event Coverage",
+    title: "Story Scout",
     description: "I embed in high-caliber events and capture the story from the inside. Video, audio, drone, and photography — from startup pitch nights to luxury showcases to film festivals.",
-    illustration: EVENT_COVERAGE_ICON_URL,
-    illustrationAlt: "Illustrated icon of a videographer filming an event with stage lights and audience",
+    illustration: STORY_SCOUT_URL,
+    illustrationAlt: "Faceless illustrated character extending a microphone toward another person, engaged interviewer energy",
     cta: { label: "Get In Touch", href: "#connect" },
   },
   {
-    title: "The Clarity Report",
+    title: "Story Test",
     description: "AI-powered audience research that tells you who's receptive to your pitch, who isn't, and what objections are standing in the way. Available standalone or paired with any coverage package. The idea isn't the problem. The unaddressed objections are.",
-    illustration: CLARITY_REPORT_PANEL_URL,
-    illustrationAlt: "Illustrated diverse panel of business professionals giving feedback with speech bubbles",
+    illustration: STORY_TEST_URL,
+    illustrationAlt: "Faceless illustrated character facilitating a group discussion with a diverse panel of seated people",
     cta: { label: "Learn More", href: "mailto:sindbad@advstmedia.com" },
     highlight: true,
   },
   {
-    title: "Custom Projects",
+    title: "Story Forge",
     description: "Have something in mind that doesn't fit a box? Good. Let's talk.",
-    illustration: CUSTOM_PROJECTS_ICON_URL,
-    illustrationAlt: "Illustrated icon of creative tools — gear, pencil, and lightbulb representing custom ideation",
+    illustration: STORY_FORGE_URL,
+    illustrationAlt: "Faceless illustrated character surrounded by floating creative tools — camera, laptop, drone, pen, microphone",
     cta: { label: "Get In Touch", href: "#connect" },
   },
 ];
@@ -452,15 +425,15 @@ function ServicesSection() {
 
       <div className="container relative z-10">
         <FadeIn>
-          <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-4 block">
-            Services
-          </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
             What I Do
           </h2>
-          <p className="font-serif text-lg text-white/50 italic mb-16 max-w-lg">
+          <p className="font-serif text-lg text-white/50 italic mb-4 max-w-lg">
             Whether you need the story captured, tested, or both — here's how I work.
           </p>
+          <span className="font-condensed uppercase tracking-[0.3em] text-teal text-xs mb-16 block">
+            The StorySmith Process
+          </span>
         </FadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/5">
@@ -472,12 +445,12 @@ function ServicesSection() {
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal via-teal/60 to-transparent" aria-hidden="true" />
                 )}
 
-                {/* 2D Illustration */}
+                {/* 2D Faceless Illustration — larger and more prominent */}
                 <div className="mb-6">
                   <img
                     src={service.illustration}
                     alt={service.illustrationAlt}
-                    className="h-20 md:h-24 w-auto opacity-80"
+                    className="h-28 md:h-36 w-auto"
                   />
                 </div>
 
@@ -497,6 +470,7 @@ function ServicesSection() {
 
                 <a
                   href={service.cta.href}
+                  target={service.cta.href.startsWith("mailto:") ? undefined : undefined}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-teal-glow transition-colors group focus-visible:ring-2 focus-visible:ring-teal"
                   aria-label={`${service.cta.label} — ${service.title}`}
                 >
@@ -507,160 +481,75 @@ function ServicesSection() {
             </FadeIn>
           ))}
         </div>
-
-        {/* Forge accent image */}
-        <FadeIn>
-          <div className="mt-16 relative overflow-hidden h-48 md:h-64" style={{ clipPath: "polygon(0 15%, 100% 0, 100% 85%, 0 100%)" }} aria-hidden="true">
-            <img src={SERVICES_IMG_URL} alt="" className="w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONNECT SECTION
+   CONNECT SECTION — simplified, no form
    ═══════════════════════════════════════════════════════════════ */
 function ConnectSection() {
-  const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Open mailto as fallback since we don't have a backend
-    const subject = encodeURIComponent(`Message from ${formState.name}`);
-    const body = encodeURIComponent(`From: ${formState.name} (${formState.email})\n\n${formState.message}`);
-    window.location.href = `mailto:sindbad@advstmedia.com?subject=${subject}&body=${body}`;
-  };
-
   return (
     <section id="connect" aria-label="Contact — Let's Talk" className="py-20 md:py-28 relative">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-10" aria-hidden="true">
-        <img src={CONNECT_BG_URL} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-      </div>
-
       {/* Faded section number */}
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         04
       </div>
 
       <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left — info */}
-          <div className="lg:col-span-5">
-            <FadeIn>
-              <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-4 block">
-                Contact
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Let's Talk
-              </h2>
-              <p className="font-serif text-lg text-white/50 italic mb-10 max-w-md">
-                Whether you're a founder, event organizer, or just curious — reach out.
-              </p>
+        <div className="max-w-2xl">
+          <FadeIn>
+            <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-4 block">
+              Contact
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              Let's Talk
+            </h2>
+            <p className="font-serif text-lg text-white/50 italic mb-10 max-w-md">
+              Whether you're a founder, event organizer, or just curious — reach out.
+            </p>
 
-              <div className="space-y-6">
-                <a
-                  href="mailto:sindbad@advstmedia.com"
-                  className="flex items-center gap-4 group"
-                  aria-label="Email Sindbad at sindbad@advstmedia.com"
-                >
-                  <div className="w-12 h-12 border border-teal/30 flex items-center justify-center group-hover:border-teal/60 group-hover:bg-teal/5 transition-all">
-                    <Mail className="w-5 h-5 text-teal" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/40">Email</p>
-                    <p className="text-teal font-medium group-hover:text-teal-glow transition-colors">
-                      sindbad@advstmedia.com
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 group"
-                  aria-label="Connect with Sindbad Horizon on LinkedIn (opens in new tab)"
-                >
-                  <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:border-teal/40 group-hover:bg-teal/5 transition-all">
-                    <Linkedin className="w-5 h-5 text-white/50 group-hover:text-teal transition-colors" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/40">LinkedIn</p>
-                    <p className="text-white/70 font-medium group-hover:text-teal transition-colors">
-                      Connect on LinkedIn
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Right — form */}
-          <div className="lg:col-span-7">
-            <FadeIn delay={0.15}>
-              <form onSubmit={handleSubmit} className="bg-slate-card border border-white/5 p-8 md:p-10" aria-label="Contact form">
-                <div className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-condensed uppercase tracking-[0.15em] text-white/40 mb-2">
-                      Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      value={formState.name}
-                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/90 placeholder:text-white/20 focus:border-teal/50 focus:outline-none transition-colors"
-                      placeholder="Your name"
-                      autoComplete="name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-condensed uppercase tracking-[0.15em] text-white/40 mb-2">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/90 placeholder:text-white/20 focus:border-teal/50 focus:outline-none transition-colors"
-                      placeholder="your@email.com"
-                      autoComplete="email"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-condensed uppercase tracking-[0.15em] text-white/40 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={5}
-                      value={formState.message}
-                      onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/10 pb-3 text-white/90 placeholder:text-white/20 focus:border-teal/50 focus:outline-none transition-colors resize-none"
-                      placeholder="Tell me about your project or event..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={sending}
-                    className="bg-teal text-background font-semibold text-sm px-8 py-3 hover:bg-teal-glow transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    {sending ? "Sending..." : "Send Message"}
-                  </button>
+            <div className="space-y-6 mb-10">
+              <a
+                href="mailto:sindbad@advstmedia.com"
+                className="flex items-center gap-4 group"
+                aria-label="Email Sindbad at sindbad@advstmedia.com"
+              >
+                <div className="w-12 h-12 border border-teal/30 flex items-center justify-center group-hover:border-teal/60 group-hover:bg-teal/5 transition-all">
+                  <Mail className="w-5 h-5 text-teal" aria-hidden="true" />
                 </div>
-              </form>
-            </FadeIn>
-          </div>
+                <div>
+                  <p className="text-sm text-white/40">Email</p>
+                  <p className="text-teal font-medium group-hover:text-teal-glow transition-colors">
+                    sindbad@advstmedia.com
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+                aria-label="Connect with Sindbad Horizon on LinkedIn (opens in new tab)"
+              >
+                <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:border-teal/40 group-hover:bg-teal/5 transition-all">
+                  <Linkedin className="w-5 h-5 text-white/50 group-hover:text-teal transition-colors" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-sm text-white/40">LinkedIn</p>
+                  <p className="text-white/70 font-medium group-hover:text-teal transition-colors">
+                    Connect on LinkedIn
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <p className="font-serif text-white/40 italic text-sm">
+              Prefer to reach out directly? All conversations start with a message.
+            </p>
+          </FadeIn>
         </div>
       </div>
     </section>

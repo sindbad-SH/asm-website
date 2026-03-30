@@ -21,10 +21,10 @@ const navItems = [
 ];
 
 const moreItems = [
-  { label: "The Dispatch", href: "/blog", desc: "Stories & field notes" },
-  { label: "The Calendar", href: "/events", desc: "Events worth your time" },
-  { label: "Tools I Use", href: "/resources", desc: "Recommendations" },
-  { label: "Book a Call", href: "/book", desc: "Schedule a conversation" },
+  { label: "Field Notes", href: "/field-notes", desc: "Stories, insights & field dispatches" },
+  { label: "The Arsenal", href: "/arsenal", desc: "Gear, tools & recommendations" },
+  { label: "The Calendar", href: "/calendar", desc: "Events worth your time" },
+  { label: "Let's Connect", href: "/connect", desc: "Book a call or start a conversation" },
 ];
 
 export default function Navigation() {

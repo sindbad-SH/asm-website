@@ -57,10 +57,10 @@ export default function Footer() {
             <h4 className="font-condensed uppercase tracking-[0.2em] text-white/30 text-xs mb-4">Coming Soon</h4>
             <div className="flex flex-col gap-2">
               {[
-                { label: "The Dispatch", href: "/blog" },
-                { label: "The Calendar", href: "/events" },
-                { label: "Tools I Use", href: "/resources" },
-                { label: "Book a Call", href: "/book" },
+                { label: "Field Notes", href: "/field-notes" },
+                { label: "The Arsenal", href: "/arsenal" },
+                { label: "The Calendar", href: "/calendar" },
+                { label: "Let's Connect", href: "/connect" },
               ].map((item) => (
                 <Link
                   key={item.label}
