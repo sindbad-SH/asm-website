@@ -30,3 +30,5 @@
 - [x] Fix smithy illustration: make larger (445x312), add teal background (#00cca8), rounded corners (38px)
 - [x] Fix IllustrationWithGlow glow color to solid teal (#18aa99)
 - [x] Clean up duplicate style attributes from visual editor
+- [x] Change collage photo 5 label to "SeriesFest Denver"
+- [x] Change collage photo 6 label to "Fashion in Focus, Denver"
