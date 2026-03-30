@@ -33,3 +33,5 @@
 - [x] Change collage photo 5 label to "SeriesFest Denver"
 - [x] Change collage photo 6 label to "Fashion in Focus, Denver"
 - [x] Fix collage grid: change object-fit from cover to contain, show full uncropped photos, #1e1e2e background for letterboxing
+- [x] Upload ASM logo mark PNG to CDN
+- [x] Add logo mark to right half of hero section with teal glow, no text

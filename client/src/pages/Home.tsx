@@ -23,6 +23,9 @@ const STORY_TEST_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227
 const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-forge-new-nobg_7720e844.png";
 const SMITHY_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/smithy-scene-transparent-QVG4cwzHTN4tzueXJgb5Gu.png";
 
+// CDN URL — ASM logo mark (mountain + S, no text)
+const ASM_LOGO_MARK_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_Mark_CharcoalandAqua_f0b0095a.webp";
+
 // LinkedIn
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
 
@@ -117,39 +120,63 @@ function HeroIntro() {
       </div>
 
       <div className="container relative z-10 pt-28 md:pt-36 pb-16 md:pb-24">
-        <div className="max-w-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left — text content */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-6 block">
+                Boulder, CO
+              </span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white mb-6">
+                Adventure Storytelling{" "}
+                <span className="text-teal">Media</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/70 font-medium leading-relaxed mb-6">
+                A Boulder-based media and market intelligence operation at the intersection of storytelling, entrepreneurship, and adventure.
+              </p>
+              <p className="font-serif text-lg text-white/50 italic leading-relaxed mb-10">
+                ASM exists at a simple crossroads: the stories worth telling are usually the ones attached to the most ambitious people and ideas. We find them, capture them, and test whether they actually land — then hand the founder, creator, or entrepreneur the tools to act on what we find.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#field"
+                  className="inline-flex items-center gap-2 bg-teal text-background font-semibold text-sm px-6 py-3 hover:bg-teal-glow transition-colors focus-visible:ring-2 focus-visible:ring-teal"
+                >
+                  See The Work
+                  <ArrowDown className="w-4 h-4" aria-hidden="true" />
+                </a>
+                <a
+                  href="#connect"
+                  className="inline-flex items-center gap-2 border border-white/20 text-white/80 font-semibold text-sm px-6 py-3 hover:border-teal/50 hover:text-teal transition-colors focus-visible:ring-2 focus-visible:ring-teal"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right — ASM logo mark with teal glow */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="hidden lg:flex items-center justify-center"
           >
-            <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-6 block">
-              Boulder, CO
-            </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white mb-6">
-              Adventure Storytelling{" "}
-              <span className="text-teal">Media</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/70 font-medium leading-relaxed mb-6 max-w-2xl">
-              A Boulder-based media and market intelligence operation at the intersection of storytelling, entrepreneurship, and adventure.
-            </p>
-            <p className="font-serif text-lg text-white/50 italic leading-relaxed mb-10 max-w-2xl">
-              ASM exists at a simple crossroads: the stories worth telling are usually the ones attached to the most ambitious people and ideas. We find them, capture them, and test whether they actually land — then hand the founder, creator, or entrepreneur the tools to act on what we find.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#field"
-                className="inline-flex items-center gap-2 bg-teal text-background font-semibold text-sm px-6 py-3 hover:bg-teal-glow transition-colors focus-visible:ring-2 focus-visible:ring-teal"
-              >
-                See The Work
-                <ArrowDown className="w-4 h-4" aria-hidden="true" />
-              </a>
-              <a
-                href="#connect"
-                className="inline-flex items-center gap-2 border border-white/20 text-white/80 font-semibold text-sm px-6 py-3 hover:border-teal/50 hover:text-teal transition-colors focus-visible:ring-2 focus-visible:ring-teal"
-              >
-                Get In Touch
-              </a>
+            <div className="relative">
+              <div
+                className="absolute inset-0 blur-3xl scale-110 rounded-full"
+                style={{ backgroundColor: 'rgba(66, 219, 191, 0.12)' }}
+                aria-hidden="true"
+              />
+              <img
+                src={ASM_LOGO_MARK_URL}
+                alt="ASM logo mark — mountain and river S design"
+                className="relative w-80 md:w-96 lg:w-[28rem] h-auto drop-shadow-[0_0_40px_rgba(66,219,191,0.2)]"
+              />
             </div>
           </motion.div>
         </div>
