@@ -420,9 +420,9 @@ function FieldSection() {
 
               {/* 2x3 photo collage grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                {collageItems.map((item) => (
+                {collageItems.map((item, i) => (
                   <div
-                    key={item.label}
+                    key={`${item.label}-${i}`}
                     className="relative aspect-[4/3] overflow-hidden group cursor-pointer"
                   >
                     <img

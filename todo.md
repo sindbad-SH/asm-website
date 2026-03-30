@@ -24,3 +24,4 @@
 - [x] Fix collage labels to match user's exact label text
 - [x] Add descriptions to new Map events (SeriesFest FiF, Outside Days, Golden Startup Coffee)
 - [x] Verify all existing tests pass (8/8)
+- [x] Fix duplicate React key error for two "SeriesFest — Fashion in Focus, Denver" collage items
