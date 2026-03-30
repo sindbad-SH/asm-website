@@ -1,6 +1,7 @@
 /*
  * 404 — ASM Website
  * Design: "The Forge" — Dark Industrial Craft
+ * Background: #1e1e2e dark charcoal
  */
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
@@ -26,7 +27,7 @@ export default function NotFound() {
             href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-teal-glow transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Back to Home
           </Link>
         </div>
