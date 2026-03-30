@@ -15,6 +15,7 @@ const events = [
     location: "Galvanize Boulder",
     url: "https://pitchboulder.co",
     domain: "pitchboulder.co",
+    description: null,
   },
   {
     name: "SeriesFest Denver",
@@ -22,6 +23,7 @@ const events = [
     location: "Denver, CO",
     url: "https://seriesfest.com",
     domain: "seriesfest.com",
+    description: null,
   },
   {
     name: "Boulder Startup Week",
@@ -29,6 +31,7 @@ const events = [
     location: "Boulder, CO",
     url: "https://boulderstartupweek.com",
     domain: "boulderstartupweek.com",
+    description: null,
   },
   {
     name: "Colorado Startup Week",
@@ -36,6 +39,7 @@ const events = [
     location: "Colorado",
     url: "https://coloradostartupweek.com",
     domain: "coloradostartupweek.com",
+    description: null,
   },
   {
     name: "American Film Market",
@@ -43,6 +47,7 @@ const events = [
     location: "Las Vegas, NV",
     url: "https://americanfilmmarket.com",
     domain: "americanfilmmarket.com",
+    description: null,
   },
   {
     name: "NOCOVA (Makeshift Entertainment Media Education)",
@@ -50,6 +55,7 @@ const events = [
     location: "Colorado",
     url: "https://meme.ngo/nocova",
     domain: "meme.ngo/nocova",
+    description: null,
   },
   {
     name: "Makeshift Film Group",
@@ -57,6 +63,31 @@ const events = [
     location: "Colorado",
     url: "https://makeshiftfilmgroup.com",
     domain: "makeshiftfilmgroup.com",
+    description: null,
+  },
+  {
+    name: "SeriesFest: Fashion in Focus",
+    schedule: "Annual pre-festival event",
+    location: "Denver, CO",
+    url: "https://seriesfest.com/festival/fashion-in-focus/",
+    domain: "seriesfest.com",
+    description: "SeriesFest's annual evening celebrating costume design and television craft. Past honorees include designers from The White Lotus and Sex and the City. A high-caliber creative industry event worth being in the room for.",
+  },
+  {
+    name: "Outside Days",
+    schedule: "Annual summer festival",
+    location: "Denver, CO",
+    url: "https://outsidedays.outsideonline.com/",
+    domain: "outsidedays.outsideonline.com",
+    description: "Outside Magazine's flagship festival combining music, film, ideas, and outdoor adventure with an industry conference track. Where the outdoor, wellness, and adventure world converges.",
+  },
+  {
+    name: "Golden Startup Coffee",
+    schedule: "Monthly",
+    location: "Connects Workspace, Golden, CO",
+    url: "https://www.connectsworkspace.com/golden-startup-coffee",
+    domain: "connectsworkspace.com",
+    description: "Monthly entrepreneur networking in Golden. Smaller and more intimate than Pitch Boulder — good for deeper conversations and connections across the Colorado startup ecosystem.",
   },
 ];
 
@@ -119,28 +150,35 @@ export default function TheMap() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
-                  className="group flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-5 border-b border-white/5 hover:bg-slate-card/30 transition-colors"
+                  className="group flex flex-col gap-2 p-5 border-b border-white/5 hover:bg-slate-card/30 transition-colors"
                   aria-label={`${event.name} — ${event.schedule} at ${event.location} (opens ${event.domain} in new tab)`}
                 >
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white group-hover:text-teal transition-colors">
-                      {event.name}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
-                      <span className="inline-flex items-center gap-1.5 text-xs text-white/40">
-                        <Clock className="w-3 h-3" aria-hidden="true" />
-                        {event.schedule}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-xs text-white/40">
-                        <MapPin className="w-3 h-3" aria-hidden="true" />
-                        {event.location}
-                      </span>
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-teal transition-colors">
+                        {event.name}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
+                        <span className="inline-flex items-center gap-1.5 text-xs text-white/40">
+                          <Clock className="w-3 h-3" aria-hidden="true" />
+                          {event.schedule}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs text-white/40">
+                          <MapPin className="w-3 h-3" aria-hidden="true" />
+                          {event.location}
+                        </span>
+                      </div>
                     </div>
+                    <span className="inline-flex items-center gap-1 text-xs font-condensed uppercase tracking-[0.1em] text-teal/60 group-hover:text-teal transition-colors shrink-0">
+                      {event.domain}
+                      <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                    </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-condensed uppercase tracking-[0.1em] text-teal/60 group-hover:text-teal transition-colors shrink-0">
-                    {event.domain}
-                    <ExternalLink className="w-3 h-3" aria-hidden="true" />
-                  </span>
+                  {event.description && (
+                    <p className="font-serif text-sm text-white/40 leading-relaxed mt-1 max-w-2xl">
+                      {event.description}
+                    </p>
+                  )}
                 </motion.a>
               ))}
             </div>

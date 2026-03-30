@@ -7,7 +7,7 @@
  * DM Sans headlines + Crimson Pro body + Barlow Condensed labels.
  */
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Linkedin, ExternalLink, Image as ImageIcon } from "lucide-react";
+import { ArrowDown, Mail, Linkedin, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -18,10 +18,10 @@ const HEADSHOT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/d
 // CDN URLs — faceless 2D illustrations (transparent bg)
 const HERO_CHARACTER_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/hero-character-faceless-nobg_0b714bb7.png";
 const FIELD_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/field-scene-2d-nobg_27c8823a.png";
-const STORY_SCOUT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-scout-icon-nobg_06ca3909.png";
+const STORY_SCOUT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-scout-transparent-nfxqineSf7KNWtUX35hvZs.png";
 const STORY_TEST_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-test-icon-nobg_1d5e4ffd.png";
 const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-forge-new-nobg_7720e844.png";
-const SMITHY_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/smithy-scene-nobg_49840085.png";
+const SMITHY_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/smithy-scene-transparent-QVG4cwzHTN4tzueXJgb5Gu.png";
 
 // LinkedIn
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
@@ -62,7 +62,7 @@ function IllustrationWithGlow({ src, alt, className = "" }: { src: string; alt: 
   return (
     <div className={`relative ${className}`}>
       <div className="absolute inset-0 bg-teal/8 rounded-full blur-2xl scale-110" aria-hidden="true" />
-      <img src={src} alt={alt} className="relative w-full h-full object-contain rounded-full" style={{ backgroundColor: '#52ad9d', borderRadius: '153px', padding: '8px' }} />
+      <img src={src} alt={alt} className="relative w-full h-full object-contain" />
     </div>
   );
 }
@@ -218,7 +218,7 @@ function StorySmithSection() {
                   <img
                     src={SMITHY_SCENE_URL}
                     alt="2D illustrated smithy scene — faceless figure forging at an anvil with hammer, teal and charcoal palette"
-                    className="h-24 md:h-32 w-auto opacity-80"
+                    className="h-24 md:h-32 w-auto opacity-80 drop-shadow-[0_0_12px_rgba(66,219,191,0.15)]"
                   />
                 </div>
                 {/* Headshot */}
@@ -284,13 +284,21 @@ const alpsShorts = [
   { videoId: "wscRbnML_U4", title: "Alpine drone footage — Alps short 4" },
 ];
 
+// CDN URLs — event photos for "More From The Field" collage
+const PHOTO_SERIESFEST = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/SeriesFest_dc6cd768.jpg";
+const PHOTO_PEBBLE_BEACH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/PebbleBeachConcorddeElegance_1405ca54.JPG";
+const PHOTO_AFM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/AmericanFilmMarket_48d7bb03.jpg";
+const PHOTO_PITCHBOULDER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/Pitchboulderimage_de611079.JPG";
+const PHOTO_OUTSIDE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/Outsidefestival_b31f051d.jpg";
+const PHOTO_FASHION = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/Fashioninfocus_311448e7.jpg";
+
 const collageItems = [
-  "SeriesFest Denver",
-  "Pebble Beach / Concours d'Elegance",
-  "American Film Market",
-  "PitchBoulder",
-  "Colorado Startup Week",
-  "Makeshift Film Group / MEME",
+  { label: "Concours d'Elegance — Pebble Beach", image: PHOTO_PEBBLE_BEACH, alt: "Pebble Beach Concours d'Elegance — Shelby Cobra 427 SC Roadster on the lawn" },
+  { label: "American Film Market", image: PHOTO_AFM, alt: "American Film Market — independent film industry event coverage" },
+  { label: "PitchBoulder — Boulder, CO", image: PHOTO_PITCHBOULDER, alt: "PitchBoulder — weekly startup pitch event in Boulder, Colorado" },
+  { label: "Outside Days — Outside Magazine Festival", image: PHOTO_OUTSIDE, alt: "Outside Days — Outside Magazine outdoor adventure and lifestyle festival" },
+  { label: "SeriesFest — Fashion in Focus, Denver", image: PHOTO_SERIESFEST, alt: "SeriesFest Fashion in Focus — fashion and entertainment industry event in Denver" },
+  { label: "SeriesFest — Fashion in Focus, Denver", image: PHOTO_FASHION, alt: "SeriesFest Fashion in Focus — costume design and television craft celebration" },
 ];
 
 function FieldSection() {
@@ -410,22 +418,32 @@ function FieldSection() {
                 Not every story fits a single frame. SeriesFest Denver, the American Film Market, Boulder Startup Week, Colorado Startup Week, Pitch Boulder — if it's ambitious, interesting, and worth covering, a StorySmith belongs there. More coverage documented on LinkedIn.
               </p>
 
-              {/* 2x3 collage placeholder grid */}
+              {/* 2x3 photo collage grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                {collageItems.map((label) => (
+                {collageItems.map((item) => (
                   <div
-                    key={label}
-                    className="aspect-[4/3] border border-teal/20 bg-[#1e1e2e]/80 flex flex-col items-center justify-center gap-3 p-4 hover:border-teal/40 transition-colors"
+                    key={item.label}
+                    className="relative aspect-[4/3] overflow-hidden group cursor-pointer"
                   >
-                    <ImageIcon className="w-8 h-8 text-teal/30" aria-hidden="true" />
-                    <span className="text-xs text-center text-white/40 font-condensed uppercase tracking-wider leading-tight">
-                      {label}
-                    </span>
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    {/* Teal hover overlay with label */}
+                    <div className="absolute inset-0 bg-teal/0 group-hover:bg-teal/70 transition-all duration-300 flex items-end justify-start p-4" aria-hidden="true">
+                      <span className="text-xs text-white/0 group-hover:text-white font-condensed uppercase tracking-wider leading-tight transition-colors duration-300 drop-shadow-lg">
+                        {item.label}
+                      </span>
+                    </div>
+                    {/* Subtle bottom gradient for readability */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
                   </div>
                 ))}
               </div>
               <p className="font-serif text-sm text-white/40 italic mb-6">
-                Images and coverage added as stories develop. Follow along on LinkedIn.
+                More coverage documented on LinkedIn. Follow along.
               </p>
 
               <a

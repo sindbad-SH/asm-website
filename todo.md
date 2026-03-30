@@ -8,3 +8,19 @@
 - [x] Integrate S3 file storage (schema, db helpers, tRPC procedures)
 - [x] Test file storage functionality (8/8 vitest tests pass)
 - [x] Save checkpoint
+
+## Comprehensive Update v4
+- [x] Fix Story Scout card: remove square/box background behind interviewer character
+- [x] Fix StorySmith smithy illustration: remove pink/colored background from oval, make transparent
+- [x] Upload 6 event photos to CDN
+- [x] Replace 6 collage placeholders with real photos + teal hover overlay with label text
+- [x] Add SeriesFest: Fashion in Focus to The Map
+- [x] Add Outside Days to The Map
+- [x] Add Golden Startup Coffee to The Map
+- [x] Save checkpoint
+- [x] Regenerate Story Scout illustration with transparent background (new CDN image)
+- [x] Regenerate Smithy scene illustration with transparent background (new CDN image)
+- [x] Fix collage photo order to match user's requested sequence
+- [x] Fix collage labels to match user's exact label text
+- [x] Add descriptions to new Map events (SeriesFest FiF, Outside Days, Golden Startup Coffee)
+- [x] Verify all existing tests pass (8/8)
