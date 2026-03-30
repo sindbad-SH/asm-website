@@ -35,3 +35,4 @@
 - [x] Fix collage grid: change object-fit from cover to contain, show full uncropped photos, #1e1e2e background for letterboxing
 - [x] Upload ASM logo mark PNG to CDN
 - [x] Add logo mark to right half of hero section with teal glow, no text
+- [x] Remove "The S in the logo" paragraph from StorySmith section

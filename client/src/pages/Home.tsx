@@ -229,9 +229,7 @@ function StorySmithSection() {
                 <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed italic">
                   Boulder is home base. The world is the territory.
                 </p>
-                <p className="font-serif text-base text-teal/70 leading-relaxed mt-4">
-                  The S in the logo isn't just a letter. It's a river — always moving, always finding the next story worth following.
-                </p>
+
               </div>
             </FadeIn>
           </div>
