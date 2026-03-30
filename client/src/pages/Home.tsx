@@ -484,7 +484,7 @@ const services = [
     description: "AI-powered audience research that tells you who's receptive to your pitch, who isn't, and what objections are standing in the way. Available standalone or paired with any coverage package. The idea isn't the problem. The unaddressed objections are.",
     illustration: STORY_TEST_URL,
     illustrationAlt: "Faceless illustrated character facilitating a group discussion with a diverse panel of seated people",
-    cta: { label: "Get In Touch", href: "mailto:sindbad@advstmedia.com" },
+    cta: { label: "Get In Touch", href: "#connect" },
     highlight: true,
   },
   {
