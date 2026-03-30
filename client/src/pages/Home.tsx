@@ -62,7 +62,7 @@ function IllustrationWithGlow({ src, alt, className = "" }: { src: string; alt: 
   return (
     <div className={`relative ${className}`}>
       <div className="absolute inset-0 bg-teal/8 rounded-full blur-2xl scale-110" aria-hidden="true" />
-      <img src={src} alt={alt} className="relative w-full h-full object-contain" />
+      <img src={src} alt={alt} className="relative w-full h-full object-contain rounded-full" style={{ backgroundColor: '#52ad9d', borderRadius: '153px', padding: '8px' }} />
     </div>
   );
 }
@@ -519,7 +519,7 @@ function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/5">
           {services.map((service, i) => (
             <FadeIn key={service.title} delay={i * 0.1}>
-              <div className={`relative bg-background p-8 md:p-10 h-full flex flex-col hover:bg-slate-card/50 transition-colors duration-300 ${service.highlight ? "bg-slate-card" : ""}`}>
+              <div className={`relative p-8 md:p-10 h-full flex flex-col hover:bg-slate-card/50 transition-colors duration-300 ${service.highlight ? "bg-slate-card" : ""}`} style={{ backgroundColor: '#1e1e2e' }}>
                 {service.highlight && (
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal via-teal/60 to-transparent" aria-hidden="true" />
                 )}
