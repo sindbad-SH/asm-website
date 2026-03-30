@@ -52,3 +52,4 @@
 - [x] Add inline teal link in StorySmith bio after "Research → Creation → Refinement"
 - [x] Add "Want to know if your story lands?" link in More From The Field section
 - [x] Add "The Story Test" link to footer Navigate section
+- [x] Add subtle attention-drawing animation to floating sticky Story Test button
