@@ -19,6 +19,7 @@ const navItems = [
 ];
 
 const moreItems = [
+  { label: "The Story Test", href: "/story-test", desc: "Find out if your story actually lands" },
   { label: "Field Notes", href: "/field-notes", desc: "Stories, insights & field dispatches" },
   { label: "The Arsenal", href: "/arsenal", desc: "Gear, tools & recommendations" },
   { label: "The Map", href: "/map", desc: "Events worth showing up for" },

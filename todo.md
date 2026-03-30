@@ -53,3 +53,5 @@
 - [x] Add "Want to know if your story lands?" link in More From The Field section
 - [x] Add "The Story Test" link to footer Navigate section
 - [x] Add subtle attention-drawing animation to floating sticky Story Test button
+- [x] Add "The Story Test" link to More dropdown nav menu (top of list, links to /story-test)
+- [x] Fix scroll-to-top on all /story-test links (sticky button, bio link, field link, footer, card button, dropdown)

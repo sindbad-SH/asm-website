@@ -1,9 +1,21 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+
+/* Scroll to top on every route change (unless navigating to a hash anchor) */
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+  return null;
+}
 import Home from "./pages/Home";
 import FieldNotes from "./pages/FieldNotes";
 import Arsenal from "./pages/Arsenal";
@@ -34,6 +46,7 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
+          <ScrollToTop />
           <Router />
           <StoryTestButton />
         </TooltipProvider>
