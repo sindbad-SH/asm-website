@@ -10,6 +10,7 @@ import Arsenal from "./pages/Arsenal";
 import TheMap from "./pages/TheMap";
 import LetsConnect from "./pages/LetsConnect";
 import StoryTest from "./pages/StoryTest";
+import StoryTestButton from "./components/StoryTestButton";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -34,6 +35,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <StoryTestButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

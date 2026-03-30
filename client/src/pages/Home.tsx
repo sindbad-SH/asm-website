@@ -8,6 +8,7 @@
  */
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, Linkedin, ExternalLink } from "lucide-react";
+import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -225,6 +226,9 @@ function StorySmithSection() {
                 </p>
                 <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed">
                   The most powerful stories aren't just told — they are tested. I build the asset, measure its effectiveness, and feed those insights back into the next iteration. Research &rarr; Creation &rarr; Refinement. I don't just capture your story — I help you find out if it lands.
+                </p>
+                <p className="font-serif text-base text-teal/70 leading-relaxed">
+                  <Link href="/story-test" className="text-teal hover:text-teal-glow transition-colors inline-flex items-center gap-1">Curious about the research side? Learn about The Story Test &rarr;</Link>
                 </p>
                 <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed italic">
                   Boulder is home base. The world is the territory.
@@ -486,6 +490,10 @@ function FieldSection() {
                 Follow on LinkedIn
                 <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
               </a>
+              <p className="mt-4 font-serif text-sm text-white/50">
+                Want to know if your story lands?{" "}
+                <Link href="/story-test" className="text-teal hover:text-teal-glow transition-colors">See The Story Test &rarr;</Link>
+              </p>
             </article>
           </FadeIn>
         </div>

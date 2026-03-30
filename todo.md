@@ -44,3 +44,11 @@
 - [x] Add /story-test route to App.tsx
 - [x] Remove duplicate "Follow on LinkedIn" button in More From The Field section
 - [x] Update PitchBoulder copy: "nearly three years" → "over three years"
+- [x] Generate 5 new 2D faceless illustrations for Story Test page (hero fork, problem speech bubbles, analysis magnifying glass, 3 who-this-is-for figures, handoff)
+- [x] Redesign /story-test page with illustrations, section dividers, visual hierarchy matching main site
+- [x] Update Story Test terminology: add Clarity Report as specific product name
+- [x] Update "What The Story Test Is" section header and body copy
+- [x] Add floating sticky "The Story Test →" button on every page (bottom-right, teal)
+- [x] Add inline teal link in StorySmith bio after "Research → Creation → Refinement"
+- [x] Add "Want to know if your story lands?" link in More From The Field section
+- [x] Add "The Story Test" link to footer Navigate section

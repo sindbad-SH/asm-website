@@ -40,6 +40,7 @@ export default function Footer() {
                 { label: "The Field", href: "/#field" },
                 { label: "What I Do", href: "/#services" },
                 { label: "Connect", href: "/#connect" },
+                { label: "The Story Test", href: "/story-test" },
               ].map((item) => (
                 <a
                   key={item.label}
