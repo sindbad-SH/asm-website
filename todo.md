@@ -32,3 +32,4 @@
 - [x] Clean up duplicate style attributes from visual editor
 - [x] Change collage photo 5 label to "SeriesFest Denver"
 - [x] Change collage photo 6 label to "Fashion in Focus, Denver"
+- [x] Fix collage grid: change object-fit from cover to contain, show full uncropped photos, #1e1e2e background for letterboxing

@@ -424,12 +424,13 @@ function FieldSection() {
                 {collageItems.map((item, i) => (
                   <div
                     key={`${item.label}-${i}`}
-                    className="relative aspect-[4/3] overflow-hidden group cursor-pointer"
+                    className="relative aspect-square overflow-hidden group cursor-pointer"
+                    style={{ backgroundColor: '#1e1e2e' }}
                   >
                     <img
                       src={item.image}
                       alt={item.alt}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     {/* Teal hover overlay with label */}
