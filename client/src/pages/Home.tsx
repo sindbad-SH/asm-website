@@ -275,7 +275,7 @@ const fieldEntries = [
   {
     title: "Concours d'Elegance",
     location: "Pebble Beach",
-    context: "A restored Shelby 427 SC Roadster. The owner's words say it better than mine.",
+    context: "A restored Shelby 427 SC Roadster at the most prestigious automotive showcase in the world. The assignment wasn\u2019t to film a car \u2014 it was to capture why someone spends decades and a fortune restoring one, and make sure anyone who watches understands exactly what they\u2019re looking at. Jack Bell\u2019s words say it better than mine.",
     testimonial: {
       text: "Working with Sindbad Horizon of Adventure Storytelling Media was a great experience. He not only captured stunning footage and photographs of the Cobra at Pebble Beach, but also brought the story and character of the car to life through his editing and creative direction. The results went far beyond documentation — they conveyed the emotion, craftsmanship, and legacy behind the machine itself. Highly recommended for anyone who values authentic, cinematic storytelling.",
       author: "Jack Bell",
@@ -286,7 +286,7 @@ const fieldEntries = [
   {
     title: "PitchBoulder",
     location: "Boulder, CO",
-    context: "Every Wednesday, founders step up. I capture what happens.",
+    context: "Every Wednesday, founders step into a room of investors, operators, and advisors and try to explain why their company matters. I\u2019ve been embedded in that room for nearly three years. What I\u2019ve learned is that the camera is the least interesting part \u2014 the real story is whether the audience actually heard what the founder thought they said. Sometimes they did. Often they didn\u2019t. That gap is everything.",
     testimonial: {
       text: "When we created the website for PitchBoulder, we needed a video to capture the spirit of our meetings and the energy in the room. I hired Sindbad Horizon to create a piece that would address these requirements. Did he ever! The video is sensational, and I could not be more pleased.",
       author: "Peter Rothschild",
@@ -308,6 +308,8 @@ const alpsShorts = [
   { videoId: "JXRdUW44Ogc", title: "Alpine drone footage — Swiss Alps short 2" },
   { videoId: "4nCOwBhR8wY", title: "Alpine drone footage — Italian Alps short 3" },
   { videoId: "wscRbnML_U4", title: "Alpine drone footage — Alps short 4" },
+  { videoId: "yVSUIavDFeg", title: "Alpine drone footage — Switzerland short 5" },
+  { videoId: "1_YW_4ulyrs", title: "Alpine drone footage — Switzerland short 6" },
 ];
 
 // CDN URLs — event photos for "More From The Field" collage
@@ -417,7 +419,7 @@ function FieldSection() {
               <p className="font-serif text-white/60 italic mb-8 leading-relaxed max-w-2xl">
                 Not every story needs a client brief. Some just need someone willing to show up with a drone and a good eye. Switzerland, Italy, and counting.
               </p>
-              <div className="grid grid-cols-2 gap-2 max-w-3xl">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-4xl">
                 {alpsShorts.map((short) => (
                   <YouTubeEmbed
                     key={short.videoId}
@@ -488,25 +490,7 @@ function FieldSection() {
           </FadeIn>
         </div>
 
-        {/* Follow CTA */}
-        <FadeIn>
-          <div className="mt-20 text-center">
-            <p className="font-serif text-white/40 italic mb-4">
-              More stories in progress. Follow along on LinkedIn.
-            </p>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/15 text-white/70 font-medium text-sm px-5 py-2.5 hover:border-teal/40 hover:text-teal transition-colors focus-visible:ring-2 focus-visible:ring-teal"
-              aria-label="Follow Sindbad Horizon on LinkedIn (opens in new tab)"
-            >
-              <Linkedin className="w-4 h-4" aria-hidden="true" />
-              Follow on LinkedIn
-              <ExternalLink className="w-3 h-3 opacity-50" aria-hidden="true" />
-            </a>
-          </div>
-        </FadeIn>
+
       </div>
     </section>
   );
@@ -526,10 +510,10 @@ const services = [
   },
   {
     title: "Story Test",
-    description: "AI-powered audience research that tells you who's receptive to your pitch, who isn't, and what objections are standing in the way. Available standalone or paired with any coverage package. The idea isn't the problem. The unaddressed objections are.",
+    description: "Most founders believe their story is clear. Most audiences disagree. The Story Test uses AI-powered audience research to show you exactly who\u2019s receptive to your pitch, who isn\u2019t, and what specific objections are standing between you and a yes \u2014 before you spend another dollar finding out the hard way.",
     illustration: STORY_TEST_URL,
     illustrationAlt: "Faceless illustrated character facilitating a group discussion with a diverse panel of seated people",
-    cta: { label: "Get In Touch", href: "#connect" },
+    cta: { label: "Learn More", href: "/story-test" },
     highlight: true,
   },
   {

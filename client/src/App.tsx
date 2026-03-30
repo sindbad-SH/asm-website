@@ -9,6 +9,7 @@ import FieldNotes from "./pages/FieldNotes";
 import Arsenal from "./pages/Arsenal";
 import TheMap from "./pages/TheMap";
 import LetsConnect from "./pages/LetsConnect";
+import StoryTest from "./pages/StoryTest";
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path={"/arsenal"} component={Arsenal} />
       <Route path={"/map"} component={TheMap} />
       <Route path={"/connect"} component={LetsConnect} />
+      <Route path={"/story-test"} component={StoryTest} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

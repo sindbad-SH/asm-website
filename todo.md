@@ -36,3 +36,10 @@
 - [x] Upload ASM logo mark PNG to CDN
 - [x] Add logo mark to right half of hero section with teal glow, no text
 - [x] Remove "The S in the logo" paragraph from StorySmith section
+- [x] Add 2 Switzerland drone shorts to On Location section (2x3 grid)
+- [x] Update Concours d'Elegance entry copy
+- [x] Update PitchBoulder entry copy
+- [x] Update Story Test card: change button to "Learn More" linking to /story-test, update copy
+- [x] Create /story-test page with educational content and Calendly CTA
+- [x] Add /story-test route to App.tsx
+- [x] Remove duplicate "Follow on LinkedIn" button in More From The Field section
