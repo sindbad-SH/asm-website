@@ -43,3 +43,4 @@
 - [x] Create /story-test page with educational content and Calendly CTA
 - [x] Add /story-test route to App.tsx
 - [x] Remove duplicate "Follow on LinkedIn" button in More From The Field section
+- [x] Update PitchBoulder copy: "nearly three years" → "over three years"
