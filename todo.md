@@ -55,3 +55,4 @@
 - [x] Add subtle attention-drawing animation to floating sticky Story Test button
 - [x] Add "The Story Test" link to More dropdown nav menu (top of list, links to /story-test)
 - [x] Fix scroll-to-top on all /story-test links (sticky button, bio link, field link, footer, card button, dropdown)
+- [x] Visual edit: Update Story Test page section/card background colors to vibrant teal tones and add border-radius to illustration container
