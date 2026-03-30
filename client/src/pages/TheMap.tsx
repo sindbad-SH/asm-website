@@ -98,7 +98,7 @@ export default function TheMap() {
             {/* Body */}
             <div className="space-y-6 mb-12">
               <p className="font-serif text-lg text-white/70 leading-relaxed">
-                Not a schedule of where to find me — a curated collection of events I think are worth knowing about. Startups, film, creative industry, and adventure. In Colorado, across the country, and eventually around the world.
+                A curated collection of events I think are worth knowing about. Startups, film, creative industry, and adventure. In Colorado, across the country, and eventually around the world.
               </p>
             </div>
 
