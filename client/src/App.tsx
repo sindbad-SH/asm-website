@@ -9,8 +9,8 @@ import FieldNotes from "./pages/FieldNotes";
 import Arsenal from "./pages/Arsenal";
 import TheMap from "./pages/TheMap";
 import LetsConnect from "./pages/LetsConnect";
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
