@@ -11,8 +11,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_MarkandTextStacked_CharcoalandAqua_d479d70d.webp";
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
-
 const navItems = [
   { label: "Home", href: "/" },
   { label: "The Field", href: "/#field" },
@@ -23,7 +21,7 @@ const navItems = [
 const moreItems = [
   { label: "Field Notes", href: "/field-notes", desc: "Stories, insights & field dispatches" },
   { label: "The Arsenal", href: "/arsenal", desc: "Gear, tools & recommendations" },
-  { label: "The Calendar", href: "/calendar", desc: "Events worth your time" },
+  { label: "The Map", href: "/map", desc: "Events worth showing up for" },
   { label: "Let's Connect", href: "/connect", desc: "Book a call or start a conversation" },
 ];
 
@@ -44,7 +42,6 @@ export default function Navigation() {
     setMoreOpen(false);
   }, [location]);
 
-  // Close dropdown on Escape
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") {
       setMoreOpen(false);
@@ -205,7 +202,7 @@ export default function Navigation() {
                 </motion.a>
               ))}
               <div className="mt-6 pt-4 border-t border-white/10">
-                <span className="text-xs font-condensed uppercase tracking-[0.2em] text-white/30 mb-4 block">Coming Soon</span>
+                <span className="text-xs font-condensed uppercase tracking-[0.2em] text-white/30 mb-4 block">Explore</span>
                 {moreItems.map((item, i) => (
                   <motion.div
                     key={item.label}

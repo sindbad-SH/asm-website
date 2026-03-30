@@ -1,6 +1,6 @@
 /*
- * The Calendar — ASM Website
- * Events worth your time — curated list of startup events, creative gatherings, film festivals.
+ * The Map — ASM Website (formerly The Calendar)
+ * A StorySmith's guide to events worth showing up for.
  */
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, MapPin, Clock } from "lucide-react";
@@ -44,9 +44,23 @@ const events = [
     url: "https://americanfilmmarket.com",
     domain: "americanfilmmarket.com",
   },
+  {
+    name: "NOCOVA (Makeshift Entertainment Media Education)",
+    schedule: "Recurring monthly",
+    location: "Colorado",
+    url: "https://meme.ngo/nocova",
+    domain: "meme.ngo/nocova",
+  },
+  {
+    name: "Makeshift Film Group",
+    schedule: "Screenings and events",
+    location: "Colorado",
+    url: "https://makeshiftfilmgroup.com",
+    domain: "makeshiftfilmgroup.com",
+  },
 ];
 
-export default function Calendar() {
+export default function TheMap() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -68,10 +82,10 @@ export default function Calendar() {
               Events & Happenings
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              The Calendar
+              The Map
             </h1>
             <p className="font-serif text-xl md:text-2xl text-white/60 italic mb-10 leading-relaxed">
-              Events worth your time.
+              A StorySmith's guide to events worth showing up for.
             </p>
 
             {/* Divider */}
@@ -84,14 +98,14 @@ export default function Calendar() {
             {/* Body */}
             <div className="space-y-6 mb-12">
               <p className="font-serif text-lg text-white/70 leading-relaxed">
-                A curated list of startup events, creative gatherings, film festivals, and high-caliber happenings worth knowing about. A StorySmith's take on what's worth showing up for — in Boulder, across Colorado, and beyond.
+                Not a schedule of where to find me — a curated collection of events I think are worth knowing about. Startups, film, creative industry, and adventure. In Colorado, across the country, and eventually around the world.
               </p>
             </div>
 
-            {/* Coming Soon badge */}
+            {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 px-4 py-1.5 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
-              <span className="font-condensed uppercase tracking-[0.15em] text-teal text-xs">First events being added now</span>
+              <span className="font-condensed uppercase tracking-[0.15em] text-teal text-xs">Events being added regularly</span>
             </div>
 
             {/* Event list */}

@@ -1,7 +1,6 @@
 /*
  * Let's Connect — ASM Website
- * Formerly "Book a Call"
- * Multiple contact options: email, LinkedIn, schedule.
+ * Multiple contact options: email, LinkedIn, schedule via Calendly.
  */
 import { motion } from "framer-motion";
 import { ArrowLeft, Mail, Linkedin, CalendarDays, ExternalLink } from "lucide-react";
@@ -10,6 +9,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
+const CALENDLY_URL = "https://calendly.com/sindbad-adventurestorytellingmedia/new-meeting";
 
 export default function LetsConnect() {
   return (
@@ -39,14 +39,17 @@ export default function LetsConnect() {
               However you prefer to reach out — here's how.
             </p>
 
-            {/* Primary CTA */}
+            {/* Primary CTA — Calendly */}
             <a
-              href="#"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-teal text-background font-bold text-lg px-8 py-4 hover:bg-teal-glow transition-colors mb-12 focus-visible:ring-2 focus-visible:ring-teal"
-              aria-label="Schedule a conversation (Calendly link coming soon)"
+              aria-label="Schedule a conversation on Calendly (opens in new tab)"
             >
               <CalendarDays className="w-5 h-5" aria-hidden="true" />
               Schedule a Conversation
+              <ExternalLink className="w-4 h-4 opacity-60" aria-hidden="true" />
             </a>
 
             {/* Divider */}
@@ -93,9 +96,11 @@ export default function LetsConnect() {
 
               {/* Schedule */}
               <a
-                href="#"
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group bg-background p-6 md:p-8 hover:bg-slate-card/50 transition-colors text-center"
-                aria-label="Book a time directly (Calendly link coming soon)"
+                aria-label="Book a time directly on Calendly (opens in new tab)"
               >
                 <div className="w-14 h-14 border border-white/10 flex items-center justify-center mx-auto mb-4 group-hover:border-teal/40 group-hover:bg-teal/5 transition-all">
                   <CalendarDays className="w-6 h-6 text-white/50 group-hover:text-teal transition-colors" aria-hidden="true" />

@@ -7,7 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import FieldNotes from "./pages/FieldNotes";
 import Arsenal from "./pages/Arsenal";
-import Calendar from "./pages/Calendar";
+import TheMap from "./pages/TheMap";
 import LetsConnect from "./pages/LetsConnect";
 
 function Router() {
@@ -16,7 +16,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/field-notes"} component={FieldNotes} />
       <Route path={"/arsenal"} component={Arsenal} />
-      <Route path={"/calendar"} component={Calendar} />
+      <Route path={"/map"} component={TheMap} />
       <Route path={"/connect"} component={LetsConnect} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}

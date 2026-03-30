@@ -52,14 +52,14 @@ export default function Footer() {
             </div>
           </nav>
 
-          {/* Coming Soon */}
+          {/* Explore */}
           <div className="md:col-span-3">
-            <h4 className="font-condensed uppercase tracking-[0.2em] text-white/30 text-xs mb-4">Coming Soon</h4>
+            <h4 className="font-condensed uppercase tracking-[0.2em] text-white/30 text-xs mb-4">Explore</h4>
             <div className="flex flex-col gap-2">
               {[
                 { label: "Field Notes", href: "/field-notes" },
                 { label: "The Arsenal", href: "/arsenal" },
-                { label: "The Calendar", href: "/calendar" },
+                { label: "The Map", href: "/map" },
                 { label: "Let's Connect", href: "/connect" },
               ].map((item) => (
                 <Link

@@ -2,11 +2,12 @@
  * Home — ASM Website
  * Design: "The Forge" — Dark Industrial Craft
  * Background: #1e1e2e dark charcoal
- * StorySmith concept: forged precision, angular compositions, teal as forge-heat.
+ * Split hero: Part A = ASM intro, Part B = StorySmith bio with headshot
+ * Scrolling river line weaves through entire page
  * DM Sans headlines + Crimson Pro body + Barlow Condensed labels.
  */
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowDown, Mail, Linkedin, ExternalLink, Image as ImageIcon } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
@@ -14,12 +15,13 @@ import SectionDivider from "@/components/SectionDivider";
 // CDN URLs — provided assets
 const HEADSHOT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/IMG_20251115_094655_696_2011f9cc.webp";
 
-// CDN URLs — new faceless 2D illustrations
+// CDN URLs — faceless 2D illustrations (transparent bg)
 const HERO_CHARACTER_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/hero-character-faceless-nobg_0b714bb7.png";
 const FIELD_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/field-scene-2d-nobg_27c8823a.png";
 const STORY_SCOUT_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-scout-icon-nobg_06ca3909.png";
 const STORY_TEST_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-test-icon-nobg_1d5e4ffd.png";
-const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-forge-icon-nobg_b35c7cee.png";
+const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/story-forge-new-nobg_7720e844.png";
+const SMITHY_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/smithy-scene-nobg_49840085.png";
 
 // LinkedIn
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
@@ -55,91 +57,101 @@ function YouTubeEmbed({ videoId, title, isShort = false }: { videoId: string; ti
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   HERO SECTION
-   ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
+/* ─── Illustration with glow backdrop ─── */
+function IllustrationWithGlow({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return (
-    <section aria-label="Hero — Sindbad Horizon, StorySmith" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background — 2D illustrated mountain silhouettes */}
+    <div className={`relative ${className}`}>
+      <div className="absolute inset-0 bg-teal/8 rounded-full blur-2xl scale-110" aria-hidden="true" />
+      <img src={src} alt={alt} className="relative w-full h-full object-contain" />
+    </div>
+  );
+}
+
+/* ─── Scrolling River Line (SVG path weaving through page) ─── */
+function RiverLine() {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <svg
+        className="absolute top-0 left-0 w-full h-full"
+        viewBox="0 0 100 4000"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <motion.path
+          d="M 50 0 C 30 200, 70 400, 45 600 C 20 800, 75 1000, 55 1200 C 35 1400, 65 1600, 40 1800 C 15 2000, 80 2200, 50 2400 C 20 2600, 70 2800, 45 3000 C 25 3200, 60 3400, 50 3600 C 40 3800, 55 3900, 50 4000"
+          stroke="url(#riverGradient)"
+          strokeWidth="0.3"
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 3, ease: "easeInOut" }}
+        />
+        <defs>
+          <linearGradient id="riverGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="oklch(0.75 0.15 175)" stopOpacity="0" />
+            <stop offset="5%" stopColor="oklch(0.75 0.15 175)" stopOpacity="0.25" />
+            <stop offset="50%" stopColor="oklch(0.75 0.15 175)" stopOpacity="0.15" />
+            <stop offset="95%" stopColor="oklch(0.75 0.15 175)" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="oklch(0.75 0.15 175)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO PART A — Adventure Storytelling Media Intro
+   ═══════════════════════════════════════════════════════════════ */
+function HeroIntro() {
+  return (
+    <section aria-label="Adventure Storytelling Media — Introduction" className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[#1e1e2e]" />
-        {/* Subtle teal mountain silhouette SVG background */}
         <svg className="absolute bottom-0 left-0 right-0 h-1/3 opacity-[0.06]" viewBox="0 0 1440 400" preserveAspectRatio="none">
           <path d="M0,400 L0,280 L120,180 L240,260 L360,140 L480,220 L600,100 L720,200 L840,80 L960,180 L1080,60 L1200,160 L1320,120 L1440,200 L1440,400 Z" fill="currentColor" className="text-teal" />
         </svg>
         <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e] via-transparent to-[#1e1e2e]/60" />
       </div>
 
-      <div className="container relative z-10 pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Text — left 2/3 */}
-          <div className="lg:col-span-7 xl:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <span className="font-condensed uppercase tracking-[0.3em] text-teal text-xs md:text-sm">
-                  Adventure Storytelling Media
-                </span>
-                {/* Faceless 2D character — field reporter energy */}
-                <img
-                  src={HERO_CHARACTER_URL}
-                  alt="Faceless illustrated character with camera and adventurous field reporter energy"
-                  className="h-20 md:h-28 w-auto"
-                />
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white mb-6">
-                <span className="text-teal">StorySmith.</span>
-                <br />
-                <span className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-medium text-white/90 leading-tight block mt-2">
-                  I find the entrepreneurial story inside every world I enter — and I forge it into something that works.
-                </span>
-              </h1>
-              <p className="font-serif text-lg md:text-xl text-white/50 italic max-w-xl mb-10">
-                Based in Boulder, CO. Embedded in the startup ecosystem. Always on the next adventure.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="#field"
-                  className="inline-flex items-center gap-2 bg-teal text-background font-semibold text-sm px-6 py-3 hover:bg-teal-glow transition-colors focus-visible:ring-2 focus-visible:ring-teal"
-                >
-                  See My Work
-                  <ArrowDown className="w-4 h-4" aria-hidden="true" />
-                </a>
-                <a
-                  href="#connect"
-                  className="inline-flex items-center gap-2 border border-white/20 text-white/80 font-semibold text-sm px-6 py-3 hover:border-teal/50 hover:text-teal transition-colors focus-visible:ring-2 focus-visible:ring-teal"
-                >
-                  Get In Touch
-                </a>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Headshot — right 1/3 */}
-          <div className="lg:col-span-5 xl:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-              className="relative"
-            >
-              <div className="relative overflow-hidden" style={{ clipPath: "polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%)" }}>
-                <img
-                  src={HEADSHOT_URL}
-                  alt="Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media, wearing a vest and bandana at a professional event"
-                  className="w-full aspect-[3/4] object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e]/60 via-transparent to-transparent" aria-hidden="true" />
-              </div>
-              {/* Teal accent corners */}
-              <div className="absolute -bottom-2 -right-2 w-16 h-16 border-r-2 border-b-2 border-teal/30" aria-hidden="true" />
-              <div className="absolute -top-2 -left-2 w-16 h-16 border-l-2 border-t-2 border-teal/30" aria-hidden="true" />
-            </motion.div>
-          </div>
+      <div className="container relative z-10 pt-28 md:pt-36 pb-16 md:pb-24">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-6 block">
+              Boulder, CO
+            </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-white mb-6">
+              Adventure Storytelling{" "}
+              <span className="text-teal">Media</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/70 font-medium leading-relaxed mb-6 max-w-2xl">
+              A Boulder-based media and market intelligence operation at the intersection of storytelling, entrepreneurship, and adventure.
+            </p>
+            <p className="font-serif text-lg text-white/50 italic leading-relaxed mb-10 max-w-2xl">
+              ASM exists at a simple crossroads: the stories worth telling are usually the ones attached to the most ambitious people and ideas. We find them, capture them, and test whether they actually land — then hand the founder, creator, or entrepreneur the tools to act on what we find.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#field"
+                className="inline-flex items-center gap-2 bg-teal text-background font-semibold text-sm px-6 py-3 hover:bg-teal-glow transition-colors focus-visible:ring-2 focus-visible:ring-teal"
+              >
+                See The Work
+                <ArrowDown className="w-4 h-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#connect"
+                className="inline-flex items-center gap-2 border border-white/20 text-white/80 font-semibold text-sm px-6 py-3 hover:border-teal/50 hover:text-teal transition-colors focus-visible:ring-2 focus-visible:ring-teal"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -157,35 +169,73 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BIO SECTION
+   HERO PART B — The StorySmith (Bio + Headshot)
    ═══════════════════════════════════════════════════════════════ */
-function BioSection() {
+function StorySmithSection() {
   return (
-    <section aria-label="About Sindbad Horizon" className="py-20 md:py-28 relative">
-      {/* Faded section number */}
+    <section aria-label="The StorySmith — About Sindbad Horizon" className="py-20 md:py-28 relative">
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         01
       </div>
 
-      <div className="container">
+      <div className="container relative z-10">
         <FadeIn>
-          <div className="max-w-3xl">
-            <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-8 block">
-              About
-            </span>
-            <div className="space-y-6">
-              <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
-                I'm Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media. I cover startup pitch events, luxury automotive showcases, independent film festivals, and anywhere else ambitious people are building something worth capturing.
-              </p>
-              <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed">
-                The most powerful stories aren't just told — they are tested. I build the asset, measure its effectiveness, and feed those insights back into the next iteration. Research &rarr; Creation &rarr; Refinement. I don't just capture your story — I help you find out if it lands.
-              </p>
-              <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed italic">
-                Boulder is home base. The world is the territory.
-              </p>
-            </div>
-          </div>
+          <span className="font-condensed uppercase tracking-[0.3em] text-teal/70 text-xs mb-4 block">
+            About
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-12">
+            The StorySmith
+          </h2>
         </FadeIn>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Bio text — left */}
+          <div className="lg:col-span-7">
+            <FadeIn>
+              <div className="space-y-6">
+                <p className="font-serif text-lg md:text-xl text-white/80 leading-relaxed">
+                  I'm Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media. I cover startup pitch events, luxury automotive showcases, independent film festivals, and anywhere else ambitious people are building something worth capturing.
+                </p>
+                <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed">
+                  The most powerful stories aren't just told — they are tested. I build the asset, measure its effectiveness, and feed those insights back into the next iteration. Research &rarr; Creation &rarr; Refinement. I don't just capture your story — I help you find out if it lands.
+                </p>
+                <p className="font-serif text-lg md:text-xl text-white/70 leading-relaxed italic">
+                  Boulder is home base. The world is the territory.
+                </p>
+                <p className="font-serif text-base text-teal/70 leading-relaxed mt-4">
+                  The S in the logo isn't just a letter. It's a river — always moving, always finding the next story worth following.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Headshot + smithy illustration — right */}
+          <div className="lg:col-span-5">
+            <FadeIn delay={0.15}>
+              <div className="relative">
+                {/* Smithy scene illustration — positioned above headshot */}
+                <div className="flex justify-end mb-4">
+                  <img
+                    src={SMITHY_SCENE_URL}
+                    alt="2D illustrated smithy scene — faceless figure forging at an anvil with hammer, teal and charcoal palette"
+                    className="h-24 md:h-32 w-auto opacity-80"
+                  />
+                </div>
+                {/* Headshot */}
+                <div className="relative overflow-hidden" style={{ clipPath: "polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%)" }}>
+                  <img
+                    src={HEADSHOT_URL}
+                    alt="Sindbad Horizon — StorySmith and founder of Adventure Storytelling Media, wearing a vest and bandana at a professional event"
+                    className="w-full aspect-[3/4] object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e]/60 via-transparent to-transparent" aria-hidden="true" />
+                </div>
+                {/* Teal accent corners */}
+                <div className="absolute -bottom-2 -right-2 w-16 h-16 border-r-2 border-b-2 border-teal/30" aria-hidden="true" />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -225,27 +275,27 @@ const fieldEntries = [
     testimonial: null,
     media: { type: "youtube" as const, videoId: "2OMfPSibhvE", title: "Colorado Medieval Festival — drone and ground footage of jousting and performances" },
   },
-  {
-    title: "On Location — Places Worth Going",
-    location: "Switzerland & Italy",
-    context: "Not every story needs a client brief. Some just need someone willing to show up with a drone and a good eye. Switzerland, Italy, and counting.",
-    testimonial: null,
-    media: {
-      type: "shorts-grid" as const,
-      shorts: [
-        { videoId: "NDSCqskuloU", title: "Alpine drone footage — Swiss Alps short 1" },
-        { videoId: "JXRdUW44Ogc", title: "Alpine drone footage — Swiss Alps short 2" },
-        { videoId: "4nCOwBhR8wY", title: "Alpine drone footage — Italian Alps short 3" },
-        { videoId: "wscRbnML_U4", title: "Alpine drone footage — Alps short 4" },
-      ],
-    },
-  },
+];
+
+const alpsShorts = [
+  { videoId: "NDSCqskuloU", title: "Alpine drone footage — Swiss Alps short 1" },
+  { videoId: "JXRdUW44Ogc", title: "Alpine drone footage — Swiss Alps short 2" },
+  { videoId: "4nCOwBhR8wY", title: "Alpine drone footage — Italian Alps short 3" },
+  { videoId: "wscRbnML_U4", title: "Alpine drone footage — Alps short 4" },
+];
+
+const collageItems = [
+  "SeriesFest Denver",
+  "Pebble Beach / Concours d'Elegance",
+  "American Film Market",
+  "PitchBoulder",
+  "Colorado Startup Week",
+  "Makeshift Film Group / MEME",
 ];
 
 function FieldSection() {
   return (
     <section id="field" aria-label="Portfolio — The Field" className="relative py-20 md:py-28">
-      {/* Faded section number */}
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         02
       </div>
@@ -261,11 +311,10 @@ function FieldSection() {
                 The Field
               </h2>
             </div>
-            {/* 2D illustrated scene — storytelling/coverage */}
-            <img
+            <IllustrationWithGlow
               src={FIELD_SCENE_URL}
               alt="Faceless illustrated figure with camera on a mountain overlooking a landscape, representing field storytelling"
-              className="h-16 md:h-24 w-auto opacity-70"
+              className="h-16 md:h-24 w-auto"
             />
           </div>
           <p className="font-serif text-lg text-white/50 italic mb-16 max-w-lg">
@@ -274,29 +323,13 @@ function FieldSection() {
         </FadeIn>
 
         <div className="space-y-20 md:space-y-28">
+          {/* Standard field entries (Concours, PitchBoulder, Medieval) */}
           {fieldEntries.map((entry, i) => (
             <FadeIn key={entry.title} delay={0.1}>
               <article className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start ${i % 2 === 1 ? "lg:direction-rtl" : ""}`}>
                 {/* Media */}
                 <div className={`lg:col-span-7 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  {entry.media.type === "youtube" && (
-                    <YouTubeEmbed
-                      videoId={entry.media.videoId}
-                      title={entry.media.title}
-                    />
-                  )}
-                  {entry.media.type === "shorts-grid" && (
-                    <div className="grid grid-cols-2 gap-2">
-                      {entry.media.shorts.map((short) => (
-                        <YouTubeEmbed
-                          key={short.videoId}
-                          videoId={short.videoId}
-                          title={short.title}
-                          isShort
-                        />
-                      ))}
-                    </div>
-                  )}
+                  <YouTubeEmbed videoId={entry.media.videoId} title={entry.media.title} />
                 </div>
 
                 {/* Text */}
@@ -334,9 +367,38 @@ function FieldSection() {
             </FadeIn>
           ))}
 
-          {/* More From The Field — editorial card replacing SeriesFest */}
+          {/* On Location — Places Worth Going (title ABOVE grid, full width) */}
           <FadeIn delay={0.1}>
-            <article className="border-l-2 border-teal/40 bg-slate-card/30 p-8 md:p-12 max-w-3xl">
+            <article>
+              <div className="flex items-baseline gap-3 mb-3">
+                <span className="font-condensed text-teal/50 text-sm tabular-nums">04</span>
+                <div className="w-8 h-px bg-teal/30" aria-hidden="true" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
+                On Location — Places Worth Going
+              </h3>
+              <span className="font-condensed uppercase tracking-[0.15em] text-white/30 text-xs block mb-4">
+                Switzerland & Italy
+              </span>
+              <p className="font-serif text-white/60 italic mb-8 leading-relaxed max-w-2xl">
+                Not every story needs a client brief. Some just need someone willing to show up with a drone and a good eye. Switzerland, Italy, and counting.
+              </p>
+              <div className="grid grid-cols-2 gap-2 max-w-3xl">
+                {alpsShorts.map((short) => (
+                  <YouTubeEmbed
+                    key={short.videoId}
+                    videoId={short.videoId}
+                    title={short.title}
+                    isShort
+                  />
+                ))}
+              </div>
+            </article>
+          </FadeIn>
+
+          {/* More From The Field — editorial card with collage grid */}
+          <FadeIn delay={0.1}>
+            <article className="border-l-2 border-teal/40 bg-slate-card/30 p-8 md:p-12">
               <div className="flex items-baseline gap-3 mb-3">
                 <span className="font-condensed text-teal/50 text-sm tabular-nums">05</span>
                 <div className="w-8 h-px bg-teal/30" aria-hidden="true" />
@@ -344,9 +406,28 @@ function FieldSection() {
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 More From The Field
               </h3>
-              <p className="font-serif text-white/60 italic leading-relaxed mb-6">
+              <p className="font-serif text-white/60 italic leading-relaxed mb-8">
                 Not every story fits a single frame. SeriesFest Denver, the American Film Market, Boulder Startup Week, Colorado Startup Week, Pitch Boulder — if it's ambitious, interesting, and worth covering, a StorySmith belongs there. More coverage documented on LinkedIn.
               </p>
+
+              {/* 2x3 collage placeholder grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                {collageItems.map((label) => (
+                  <div
+                    key={label}
+                    className="aspect-[4/3] border border-teal/20 bg-[#1e1e2e]/80 flex flex-col items-center justify-center gap-3 p-4 hover:border-teal/40 transition-colors"
+                  >
+                    <ImageIcon className="w-8 h-8 text-teal/30" aria-hidden="true" />
+                    <span className="text-xs text-center text-white/40 font-condensed uppercase tracking-wider leading-tight">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="font-serif text-sm text-white/40 italic mb-6">
+                Images and coverage added as stories develop. Follow along on LinkedIn.
+              </p>
+
               <a
                 href={LINKEDIN_URL}
                 target="_blank"
@@ -410,7 +491,7 @@ const services = [
     title: "Story Forge",
     description: "Have something in mind that doesn't fit a box? Good. Let's talk.",
     illustration: STORY_FORGE_URL,
-    illustrationAlt: "Faceless illustrated character surrounded by floating creative tools — camera, laptop, drone, pen, microphone",
+    illustrationAlt: "Faceless illustrated figure at a workbench surrounded by floating tools — camera, drone, microphone, laptop, sword, and hammer",
     cta: { label: "Get In Touch", href: "#connect" },
   },
 ];
@@ -418,7 +499,6 @@ const services = [
 function ServicesSection() {
   return (
     <section id="services" aria-label="Services — What I Do" className="py-20 md:py-28 relative">
-      {/* Faded section number */}
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         03
       </div>
@@ -440,19 +520,16 @@ function ServicesSection() {
           {services.map((service, i) => (
             <FadeIn key={service.title} delay={i * 0.1}>
               <div className={`relative bg-background p-8 md:p-10 h-full flex flex-col hover:bg-slate-card/50 transition-colors duration-300 ${service.highlight ? "bg-slate-card" : ""}`}>
-                {/* Top accent line for highlighted card */}
                 {service.highlight && (
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-teal via-teal/60 to-transparent" aria-hidden="true" />
                 )}
 
-                {/* 2D Faceless Illustration — larger and more prominent */}
-                <div className="mb-6">
-                  <img
-                    src={service.illustration}
-                    alt={service.illustrationAlt}
-                    className="h-28 md:h-36 w-auto"
-                  />
-                </div>
+                {/* 2D Faceless Illustration with glow backdrop — larger */}
+                <IllustrationWithGlow
+                  src={service.illustration}
+                  alt={service.illustrationAlt}
+                  className="h-32 md:h-40 w-auto mb-6"
+                />
 
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-condensed text-teal/40 text-sm tabular-nums">
@@ -470,7 +547,6 @@ function ServicesSection() {
 
                 <a
                   href={service.cta.href}
-                  target={service.cta.href.startsWith("mailto:") ? undefined : undefined}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-teal-glow transition-colors group focus-visible:ring-2 focus-visible:ring-teal"
                   aria-label={`${service.cta.label} — ${service.title}`}
                 >
@@ -492,7 +568,6 @@ function ServicesSection() {
 function ConnectSection() {
   return (
     <section id="connect" aria-label="Contact — Let's Talk" className="py-20 md:py-28 relative">
-      {/* Faded section number */}
       <div className="absolute top-8 right-8 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none" aria-hidden="true">
         04
       </div>
@@ -561,14 +636,16 @@ function ConnectSection() {
    ═══════════════════════════════════════════════════════════════ */
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
       <a href="#field" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-teal focus:text-background focus:px-4 focus:py-2 focus:text-sm focus:font-semibold">
         Skip to main content
       </a>
+      {/* Scrolling river line — weaves through entire page */}
+      <RiverLine />
       <Navigation />
-      <HeroSection />
+      <HeroIntro />
       <SectionDivider className="container" />
-      <BioSection />
+      <StorySmithSection />
       <SectionDivider className="container" />
       <FieldSection />
       <SectionDivider className="container" />
