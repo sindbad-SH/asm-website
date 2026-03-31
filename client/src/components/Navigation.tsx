@@ -9,7 +9,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_MarkandTextStacked_SkyandPersiangreen_ef417d8d.webp";
+const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_MarkandTextStacked_SkyandLuminescentcyan_118461e8.webp";
 
 const navItems = [
   { label: "Home", href: "/" },

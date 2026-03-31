@@ -25,7 +25,7 @@ const STORY_FORGE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/31051966348869022
 const SMITHY_SCENE_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/smithy-scene-transparent-QVG4cwzHTN4tzueXJgb5Gu.png";
 
 // CDN URL — ASM logo mark (mountain + S, no text)
-const ASM_LOGO_MARK_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_Mark_SkyandPersianGreen_616041f4.webp";
+const ASM_LOGO_MARK_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_Mark_SkyandLuminescentcyan_559bbcf3.webp";
 
 // LinkedIn
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
@@ -65,7 +65,7 @@ function YouTubeEmbed({ videoId, title, isShort = false }: { videoId: string; ti
 function IllustrationWithGlow({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      <div className="absolute inset-0 rounded-full blur-2xl scale-110" style={{ backgroundColor: '#00A693' }} aria-hidden="true" />
+      <div className="absolute inset-0 rounded-full blur-2xl scale-110" style={{ backgroundColor: '#38F8EC' }} aria-hidden="true" />
       <img src={src} alt={alt} className="relative w-full h-full object-contain" />
     </div>
   );
@@ -93,11 +93,11 @@ function RiverLine() {
         />
         <defs>
           <linearGradient id="riverGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="oklch(0.650 0.117 181)" stopOpacity="0" />
-            <stop offset="5%" stopColor="oklch(0.650 0.117 181)" stopOpacity="0.25" />
-            <stop offset="50%" stopColor="oklch(0.650 0.117 181)" stopOpacity="0.15" />
-            <stop offset="95%" stopColor="oklch(0.650 0.117 181)" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="oklch(0.650 0.117 181)" stopOpacity="0" />
+            <stop offset="0%" stopColor="oklch(0.887 0.145 188)" stopOpacity="0" />
+            <stop offset="5%" stopColor="oklch(0.887 0.145 188)" stopOpacity="0.25" />
+            <stop offset="50%" stopColor="oklch(0.887 0.145 188)" stopOpacity="0.15" />
+            <stop offset="95%" stopColor="oklch(0.887 0.145 188)" stopOpacity="0.25" />
+            <stop offset="100%" stopColor="oklch(0.887 0.145 188)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -176,7 +176,7 @@ function HeroIntro() {
               <img
                 src={ASM_LOGO_MARK_URL}
                 alt="ASM logo mark — mountain and river S design"
-                className="relative w-80 md:w-96 lg:w-[28rem] h-auto drop-shadow-[0_0_40px_rgba(0,166,147,0.2)]"
+                className="relative w-80 md:w-96 lg:w-[28rem] h-auto drop-shadow-[0_0_40px_rgba(56,248,236,0.2)]"
               />
             </div>
           </motion.div>
@@ -247,8 +247,8 @@ function StorySmithSection() {
                   <img
                     src={SMITHY_SCENE_URL}
                     alt="2D illustrated smithy scene — faceless figure forging at an anvil with hammer, teal and charcoal palette"
-                    className="opacity-80 drop-shadow-[0_0_12px_rgba(0,166,147,0.15)]"
-                    style={{ width: '445px', height: '312px', backgroundColor: '#00A693', borderRadius: '38px', paddingRight: '26px' }}
+                    className="opacity-80 drop-shadow-[0_0_12px_rgba(56,248,236,0.15)]"
+                    style={{ width: '445px', height: '312px', backgroundColor: '#38F8EC', borderRadius: '38px', paddingRight: '26px' }}
                   />
                 </div>
                 {/* Headshot */}

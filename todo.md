@@ -68,3 +68,11 @@
 - [x] Update Footer.tsx colors to Persian green (uses Tailwind teal class, already mapped)
 - [x] Update TheMap.tsx colors to Persian green (uses Tailwind teal class, already mapped)
 - [x] Update all other subpages/components with teal references to Persian green (all use Tailwind teal class)
+- [x] Upload 3 Electric Turquoise logo files to CDN
+- [x] Update CSS color variables: replace Persian green with Electric Turquoise #38F8EC monochromatic ramp
+- [x] Update all hardcoded color references in Home.tsx
+- [x] Update all hardcoded color references in StoryTest.tsx
+- [x] Replace nav bar logo with Electric Turquoise stacked mark+text version
+- [x] Replace hero section logo mark with Electric Turquoise mark-only version
+- [x] Replace footer logo with Electric Turquoise full original version
+- [x] Verify all subpages use updated colors (all use Tailwind teal class, now mapped to Electric Turquoise)

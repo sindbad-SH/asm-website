@@ -91,7 +91,7 @@ export default function StoryTest() {
                 <img
                   src={HERO_FORK_URL}
                   alt="Faceless figure at a fork in the road — one path lit in teal representing clarity, the other in shadow representing confusion"
-                  className="relative w-full max-w-lg object-contain drop-shadow-[0_0_30px_rgba(0,166,147,0.08)]"
+                  className="relative w-full max-w-lg object-contain drop-shadow-[0_0_30px_rgba(56,248,236,0.08)]"
                 />
               </div>
             </FadeIn>
