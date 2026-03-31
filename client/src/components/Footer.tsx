@@ -6,7 +6,7 @@
  */
 import { Link } from "wouter";
 
-const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_Original_CharcoalandAqua_e9d75d75.webp";
+const LOGO_VERTICAL_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663488690227/dx6BLXbwNNpmvxc2tsroRQ/ASM_Logo_Original_SkyandPersiangreen_e1c4fdcc.webp";
 const LINKEDIN_URL = "https://www.linkedin.com/in/sindbad-horizon-b19b4a264";
 
 export default function Footer() {

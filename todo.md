@@ -55,3 +55,16 @@
 - [x] Add subtle attention-drawing animation to floating sticky Story Test button
 - [x] Add "The Story Test" link to More dropdown nav menu (top of list, links to /story-test)
 - [x] Fix scroll-to-top on all /story-test links (sticky button, bio link, field link, footer, card button, dropdown)
+- [x] Upload 3 Persian green logo files to CDN
+- [x] Replace nav bar logo with stacked mark+text version (ASM_Logo_MarkandTextStacked_SkyandPersiangreen)
+- [x] Replace hero section logo mark with mark-only version (ASM_Logo_Mark_SkyandPersianGreen)
+- [x] Replace footer logo with full original version (ASM_Logo_Original_SkyandPersiangreen)
+- [x] Update CSS color variables: replace all teal with Persian green #00A693 monochromatic ramp
+- [x] Update all hardcoded teal colors in Home.tsx (river line, backgrounds, accents, borders, buttons)
+- [x] Update StoryTest.tsx colors to Persian green
+- [x] Update StoryTestButton.tsx colors to Persian green (uses Tailwind teal class, already mapped)
+- [x] Update SectionDivider.tsx colors to Persian green (uses Tailwind teal class, already mapped)
+- [x] Update Navigation.tsx colors to Persian green (uses Tailwind teal class, already mapped)
+- [x] Update Footer.tsx colors to Persian green (uses Tailwind teal class, already mapped)
+- [x] Update TheMap.tsx colors to Persian green (uses Tailwind teal class, already mapped)
+- [x] Update all other subpages/components with teal references to Persian green (all use Tailwind teal class)
